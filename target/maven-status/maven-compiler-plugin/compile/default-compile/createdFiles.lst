@@ -1,0 +1,17 @@
+googolweb\rmi\IndexClient.class
+googolweb\websocket\WebSocketConfig.class
+googolweb\GoogolWebApplication.class
+googolweb\websocket\StatsWebSocketHandler.class
+motorbusca\StorageBarrelImpl.class
+motorbusca\ClientFuncs.class
+motorbusca\Downloader.class
+googolweb\controller\IndexController.class
+motorbusca\DownIndex.class
+googolweb\rest\OpenRouterService.class
+motorbusca\Index.class
+googolweb\rest\HackerNewsClient.class
+motorbusca\IndexServer.class
+motorbusca\PageInfo.class
+motorbusca\Robot.class
+motorbusca\StorageBarrel.class
+googolweb\scheduler\StatsScheduler.class

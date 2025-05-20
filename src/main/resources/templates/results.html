@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Resultados de Pesquisa</title>
+    <meta charset="UTF-8">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 2em auto;
+            padding: 1em;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        .ai-analysis {
+            background: #ffffff;
+            padding: 1em;
+            margin-bottom: 1em;
+            border-left: 5px solid #3498db;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background: white;
+            padding: 1em;
+            margin-bottom: 1em;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        a {
+            color: #2980b9;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .pagination {
+            text-align: center;
+            margin-top: 2em;
+        }
+
+        .pagination a {
+            margin: 0 1em;
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        .pagination span {
+            font-weight: bold;
+        }
+
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 2em;
+        }
+    </style>
+</head>
+<body>
+    <h1>Resultados para "<span th:text="${query}"></span>"</h1>
+
+    <div th:if="${analise}" class="ai-analysis">
+        <h3>Análise gerada por IA:</h3>
+        <p th:text="${analise}"></p>
+    </div>
+
+    <ul>
+        <li th:each="result : ${results}">
+            <strong th:text="${result.title}"></strong><br/>
+            <a th:href="${result.url}" th:text="${result.url}"></a><br/>
+            <span th:text="${result.snippet}"></span>
+        </li>
+    </ul>
+
+    <div class="pagination">
+        <a th:if="${hasPrev}" th:href="@{/search(query=${query}, page=${page - 1})}">◀ Anterior</a>
+        <span>Página <span th:text="${page}"></span></span>
+        <a th:if="${hasNext}" th:href="@{/search(query=${query}, page=${page + 1})}">Seguinte ▶</a>
+    </div>
+
+    <a class="back-link" href="/">⬅ Voltar à Página Inicial</a>
+</body>
+</html>
