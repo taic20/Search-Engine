@@ -1,7 +1,7 @@
 # Googol - Distributed Web Search Engine
 
 ## Overview
-
+This project was made by college students for the course Distributed Systems  
 Googol is a distributed web search engine that implements:
 - Web crawling and indexing
 - Distributed processing with RMI
