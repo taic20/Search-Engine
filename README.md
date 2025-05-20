@@ -13,11 +13,17 @@ Googol is a distributed web search engine that implements:
 After compiling all the code you can run the code using this commands in the order im giving you in the same folder as before
 
 java motorbusca.IndexServer
+
 java motorbusca.StorageBarrelImpl 0
+
 java motorbusca.StorageBarrelImpl 1 localhost 8184
+
 java motorbusca.StorageBarrelImpl 2 localhost 8184
+
 java motorbusca.Downloader
+
 java ".;C:\the\dir\you\have\src\lib\jsoup-1.19.1.jar" motorbusca.Robot
+
 mvn spring-boot:run
 
 You have to create the barrel 1 and 2 using the localhost and the port 8184 since we use them to have a partion of the data and do not store everything in one and in case of a failure of 1 of the 2 barrel all the data is saved.
@@ -35,18 +41,6 @@ You have to create the barrel 1 and 2 using the localhost and the port 8184 sinc
   - Multi-word queries
   - Contextual analysis (OpenRouter AI)
 - **Hacker News Integration**: Index top stories matching search terms
-
-## System Architecture
-
-```mermaid
-graph TD
-    A[Client] --> B[Spring Boot Web]
-    B --> C[IndexServer (RMI)]
-    C --> D[StorageBarrel 1]
-    C --> E[StorageBarrel 2]
-    C --> F[Downloaders]
-    B --> G[HackerNews API]
-    B --> H[OpenRouter API]
 
 ## Future work
 - Improvemnet in the backend system architecture , since the one now is not correct. It shouldb be IndexServer --> WebCrawler --> Donwloader --> Storage Barrel 1/2.
