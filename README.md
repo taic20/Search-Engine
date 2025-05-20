@@ -9,21 +9,16 @@ Googol is a distributed web search engine that implements:
 - Real-time statistics with WebSockets
 
 ## How to Run
--For every change made in the backend of the code that is in the "src/main/java/motorbusca" folder you need to compile the code being in the "src/main/java" folder and use the "javac -encoding UTF-8 -cp ".;C:\Users\carol\OneDrive\Área de Trabalho\SD\motorbusca\src\lib\jsoup-1.19.1.jar" motorbusca/*.java" comand in the terminal
+-For every change made in the backend of the code that is in the "src/main/java/motorbusca" folder you need to compile the code being in the "src/main/java" folder and use the "javac -encoding UTF-8 -cp ".;C:\Users\carol\OneDrive\Área de Trabalho\SD\motorbusca\src\lib\jsoup-1.19.1.jar" motorbusca/*.java" comand in the terminal.  
 After compiling all the code you can run the code using this commands in the order im giving you in the same folder as before
 
 java motorbusca.IndexServer
 
-java motorbusca.StorageBarrelImpl 0
-
-java motorbusca.StorageBarrelImpl 1 localhost 8184
-
-java motorbusca.StorageBarrelImpl 2 localhost 8184
-
-java motorbusca.Downloader
-
-java ".;C:\the\dir\you\have\src\lib\jsoup-1.19.1.jar" motorbusca.Robot
-
+java motorbusca.StorageBarrelImpl 0  
+java motorbusca.StorageBarrelImpl 1 localhost 8184  
+java motorbusca.StorageBarrelImpl 2 localhost 8184  
+java motorbusca.Downloader  
+java ".;C:\the\dir\you\have\src\lib\jsoup-1.19.1.jar" motorbusca.Robot  
 mvn spring-boot:run
 
 You have to create the barrel 1 and 2 using the localhost and the port 8184 since we use them to have a partion of the data and do not store everything in one and in case of a failure of 1 of the 2 barrel all the data is saved.
